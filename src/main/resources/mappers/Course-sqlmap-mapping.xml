@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lj.exam.dal.daointerface.CourseDAO">
+    <resultMap id="RM-COURSE" type="Course">
+    	<result property="id" column="id"  jdbcType="INTEGER"/>
+        <result property="courseTitle" column="Course_Title"  jdbcType="VARCHAR"/>
+        <result property="courseCode" column="Course_Code"  jdbcType="VARCHAR" />
+        <result property="courseClass" column="Course_Class" jdbcType="VARCHAR"/>
+        <result property="courseSubCode" column="Course_SubCode"  jdbcType="VARCHAR" />
+        <result property="examDate" column="Exam_Date" jdbcType="VARCHAR"/>
+        <result property="startTime" column="Start_time" jdbcType="TIMESTAMP"/>
+        <result property="endTime" column="End_time"  jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+
+    <!-- ============================================= -->
+    <!-- mapped statements for IbatisCourseDAO -->
+    <!-- ============================================= -->
+    <!-- mapped statement for IbatisCourseDAO.queryCourse -->
+    <select id="queryCourse" resultMap="RM-COURSE" >
+    <![CDATA[
+        select id, Course_Title, Course_Code, Course_Class, 
+        Course_SubCode, Exam_Date, Start_time, End_time from course
+    ]]>
+    </select>
+	
+	<select id="queryByCourseCode" parameterType="String"
+		resultMap="RM-COURSE">
+		select id, Course_Title, Course_Code, Course_Class, 
+        Course_SubCode, Exam_Date, Start_time, End_time from course
+		where Course_Code = #{courseCode,jdbcType=VARCHAR}
+	</select>
+	
+</mapper> 

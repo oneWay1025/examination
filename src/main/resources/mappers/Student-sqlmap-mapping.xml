@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lj.exam.dal.daointerface.StudentDAO">
+    <resultMap id="RM-STUDENT" type="Student">
+    	<result property="id" column="id"  jdbcType="INTEGER"/>
+        <result property="examineeName" column="Examinee_Name" jdbcType="VARCHAR"/>
+        <result property="cardID" column="cardID" jdbcType="VARCHAR" />
+        <result property="examineeNum" column="Examinee_Num"  jdbcType="VARCHAR" />
+        <result property="creatTime" column="Creat_Time" jdbcType="TIMESTAMP"/>
+        <result property="contact" column="Contact" jdbcType="VARCHAR" />
+        <result property="whiteList" column="White_List" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="queryStudent" parameterType="java.util.Map" resultMap="RM-STUDENT" >
+    <![CDATA[
+        select id, Examinee_Name, cardID, Examinee_Num, Creat_Time, 
+        Contact, White_List from student
+        order by Creat_Time desc limit #{startNum},#{endNum}
+    ]]>
+    </select>
+
+	<select id="queryByExamineeNum" parameterType="String"
+		resultMap="RM-STUDENT">
+		select id, Examinee_Name, cardID, Examinee_Num, Creat_Time, 
+        Contact, White_List from student
+		where Examinee_Num = #{examineeNum,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="queryStudentTotal" resultType="int">
+    <![CDATA[
+        select count(id) from student 
+    ]]>
+    </select>
+    
+</mapper>

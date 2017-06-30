@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lj.exam.dal.daointerface.ExamRecordDAO">
+    <resultMap id="RM-EXAM-RECORD" type="ExamRecord">
+    	<result property="id" column="id"  jdbcType="INTEGER"/>
+        <result property="examineRoomCode" column="ExamineRoom_Code"  jdbcType="VARCHAR" />
+        <result property="courseCode" column="Course_Code" jdbcType="VARCHAR" />
+        <result property="courseSubCode" column="Course_SubCode" jdbcType="VARCHAR" />
+        <result property="examineeNum" column="Examinee_Num" jdbcType="VARCHAR" />
+        <result property="examineeName" column="Examinee_Name" jdbcType="VARCHAR"/>
+        <result property="score" column="Score"  jdbcType="VARCHAR" />
+        <result property="video" column="Video"  jdbcType="VARCHAR"/>
+        <result property="file" column="File" jdbcType="VARCHAR"/>
+        <result property="creatTime" column="Creat_Time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+
+    <select id="queryExamRecord" parameterType="java.util.Map" resultMap="RM-EXAM-RECORD" >
+    <![CDATA[
+        select id, ExamineRoom_Code, Course_Code, Course_SubCode, Examinee_Num,
+         Examinee_Name, Score, Video, File, Creat_Time from exam_record
+         order by Creat_Time desc limit #{startNum},#{endNum}
+    ]]>
+    </select>
+
+	<select id="queryByExamineeNum" parameterType="java.util.Map"
+		resultMap="RM-EXAM-RECORD">
+		select id, ExamineRoom_Code, Course_Code, Course_SubCode, Examinee_Num,
+         Examinee_Name, Score, Video, File, Creat_Time from exam_record
+		where Examinee_Num = #{examineeNum,jdbcType=VARCHAR}
+			order by Creat_Time desc limit #{startNum},#{endNum}
+	</select>
+	
+	<insert id="insert" parameterType="ExamRecord">
+		insert into exam_record (ExamineRoom_Code, Course_Code, Course_SubCode, Examinee_Num,
+         Examinee_Name, Score, Video, File, Creat_Time)
+		values (#{examineRoomCode,jdbcType=VARCHAR}, #{courseCode,jdbcType=VARCHAR},
+		#{courseSubCode,jdbcType=INTEGER},
+		#{examineeNum,jdbcType=VARCHAR}, #{examineeName,jdbcType=VARCHAR}, #{score,jdbcType=VARCHAR},
+		#{video,jdbcType=VARCHAR}, #{file,jdbcType=VARCHAR},now())
+	</insert>
+	
+	<select id="queryExamRecordTotal" resultType="int">
+    <![CDATA[
+        select count(id) from exam_record 
+    ]]>
+    </select>
+    
+    <select id="queryTotalByExamineeNum" resultType="int">
+    <![CDATA[
+        select count(id) from exam_record 
+        		where Examinee_Num = #{examineeNum,jdbcType=VARCHAR}
+    ]]>
+    </select>
+</mapper>
