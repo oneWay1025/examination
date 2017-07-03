@@ -59,7 +59,7 @@ public class ExamRecordDO {
 	/**
 	 * This property corresponds to db column <tt>Score</tt>.
 	 */
-	private String score;
+	private Long score;
 
 	/**
 	 * This property corresponds to db column <tt>Video</tt>.
@@ -127,11 +127,11 @@ public class ExamRecordDO {
 		this.examineeName = examineeName;
 	}
 
-	public String getScore() {
+	public Long getScore() {
 		return score;
 	}
 
-	public void setScore(String score) {
+	public void setScore(Long score) {
 		this.score = score;
 	}
 

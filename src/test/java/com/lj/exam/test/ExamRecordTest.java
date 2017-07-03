@@ -46,14 +46,14 @@ public class ExamRecordTest {
 	@Test
 	public void testInsert(){
 		ExamRecordDO examRecordDO  = new ExamRecordDO();
-		examRecordDO.setExamineRoomCode("231");
-		examRecordDO.setExamineeNum("12313");
-		examRecordDO.setExamineeName("131aqdq");
-		examRecordDO.setFile("qweqeq");
-		examRecordDO.setVideo("dqeqwwe");
-		examRecordDO.setScore("qeqeqxz");
-		examRecordDO.setCourseCode("qeqeqdada");
-		examRecordDO.setCourseSubCode("1231dewq");
+		examRecordDO.setExamineRoomCode("2321");
+		examRecordDO.setExamineeNum("123132");
+		examRecordDO.setExamineeName("131aqd1q");
+		examRecordDO.setFile("qweqeq1");
+		examRecordDO.setVideo("dqeqw1we");
+		examRecordDO.setScore(11L);
+		examRecordDO.setCourseCode("qeq1eqdada");
+		examRecordDO.setCourseSubCode("12311dewq");
 		int res = examRecordMapper.insert(examRecordDO);
 		System.out.println("ExamRecordDO="+res);
 	}

@@ -18,7 +18,7 @@ public class ExamRecord {
 
 	private String examineeName;
 
-	private String score;
+	private Long score;
 
 	private String video;
 
@@ -80,11 +80,11 @@ public class ExamRecord {
 		this.examineeName = examineeName;
 	}
 
-	public String getScore() {
+	public Long getScore() {
 		return score;
 	}
 
-	public void setScore(String score) {
+	public void setScore(Long score) {
 		this.score = score;
 	}
 
