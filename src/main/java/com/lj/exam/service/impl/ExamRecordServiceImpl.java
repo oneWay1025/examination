@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.lj.exam.dal.daointerface.ExamRecordDAO;
@@ -16,6 +18,8 @@ import com.lj.exam.service.ExamRecordService;
 
 public class ExamRecordServiceImpl implements ExamRecordService{
 	
+	private final static Logger logger = LoggerFactory.getLogger(ExamRecordServiceImpl.class);
+	
 	@Autowired
 	private ExamRecordDAO examRecordMapper;
 
@@ -23,6 +27,7 @@ public class ExamRecordServiceImpl implements ExamRecordService{
 		if(null==examRecordReq.getBody() || null == examRecordReq.getBody().getExamineeNum() )
 			new ExamRecordResp("9999","查询科目表，科目编号为空");
 		
+		logger.info("examRecordReq:" + examRecordReq);
 		String examineeNum = examRecordReq.getBody().getExamineeNum();
 		int pageSize = examRecordReq.getPageSize();
 		int totalNum = examRecordMapper.queryTotalByExamineeNum(examineeNum);

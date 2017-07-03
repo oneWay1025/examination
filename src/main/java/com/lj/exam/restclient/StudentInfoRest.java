@@ -3,12 +3,15 @@ package com.lj.exam.restclient;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSONObject;
 import com.lj.exam.model.Student;
 import com.lj.exam.model.StudentReq;
 import com.lj.exam.model.StudentResp;
@@ -18,6 +21,8 @@ import com.lj.exam.service.StudentService;
 @RequestMapping("/StudentInfoRest")
 public class StudentInfoRest {
 
+	private final static Logger logger = LoggerFactory.getLogger(StudentInfoRest.class);
+	
 	@Autowired
 	private StudentService studentService;
 
@@ -25,6 +30,8 @@ public class StudentInfoRest {
     @ResponseBody
     public StudentResp<Student> queryStudentByExamineeNum(@RequestParam Map jsonParam) {
     	
+		logger.info("查询学生信息  请求：{}" + JSONObject.toJSONString(jsonParam));
+		
 		String examineeNum = (String) jsonParam.get("examineeNum");
 		StudentResp<Student> res = studentService.queryStudentByExamineeNum(examineeNum);
         
@@ -36,6 +43,8 @@ public class StudentInfoRest {
     @ResponseBody
     public StudentResp<List<Student>> queryStudentInfoList(@RequestParam Map jsonParam) {
 		
+    	logger.info("查询全部学生信息  请求：{}" + JSONObject.toJSONString(jsonParam));
+    	
 		String page = "1";
 		if(null!=jsonParam.get("page")){
 			page = (String) jsonParam.get("page");
