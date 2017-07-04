@@ -19,4 +19,7 @@ public interface ExamRecordService {
 	//插入考试成绩
 	public ExamRecordResp<ExamRecord> insertExamRecord(ExamRecord examRecord);
 	
+	//删除考试成绩
+	public ExamRecordResp<ExamRecord> deleteByExamineeNumAndCourseCode(ExamRecord examRecord);
+	
 }

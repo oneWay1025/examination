@@ -9,7 +9,10 @@
         <result property="courseSubCode" column="Course_SubCode" jdbcType="VARCHAR" />
         <result property="examineeNum" column="Examinee_Num" jdbcType="VARCHAR" />
         <result property="examineeName" column="Examinee_Name" jdbcType="VARCHAR"/>
-        <result property="score" column="Score"  jdbcType="VARCHAR" />
+        <result property="examSiteSeat" column="Exam_Site_Seat" jdbcType="VARCHAR" />
+        <result property="videoScore" column="Video_Score"  jdbcType="VARCHAR" />
+        <result property="fileScore" column="File_Score"  jdbcType="VARCHAR" />
+        <result property="status" column="Status"  jdbcType="VARCHAR" />
         <result property="video" column="Video"  jdbcType="VARCHAR"/>
         <result property="file" column="File" jdbcType="VARCHAR"/>
         <result property="creatTime" column="Creat_Time" jdbcType="TIMESTAMP"/>
@@ -18,25 +21,28 @@
 
     <select id="queryExamRecord" parameterType="java.util.Map" resultMap="RM-EXAM-RECORD" >
     <![CDATA[
-        select id, Exam_Site_Code, Course_Code, Course_SubCode, Examinee_Num, Examinee_Name, Score, Video, File, Creat_Time from exam_record
+        select id, Exam_Site_Code, Course_Code, Course_SubCode, Examinee_Num, Examinee_Name, 
+        Exam_Site_Seat, Video_Score, File_Score, Status, Video, File, Creat_Time from exam_record
          order by Creat_Time desc limit #{startNum},#{endNum}
     ]]>
     </select>
 
 	<select id="queryByExamineeNum" parameterType="java.util.Map"
 		resultMap="RM-EXAM-RECORD">
-		select id, Exam_Site_Code, Course_Code, Course_SubCode, Examinee_Num,
-         Examinee_Name, Score, Video, File, Creat_Time from exam_record
+		select id, Exam_Site_Code, Course_Code, Course_SubCode, Examinee_Num, Exam_Site_Seat
+         Examinee_Name, Video_Score, File_Score, Status, Video, File, Creat_Time from exam_record
 		where Examinee_Num = #{examineeNum,jdbcType=VARCHAR}
 			order by Creat_Time desc limit #{startNum},#{endNum}
 	</select>
 	
 	<insert id="insert" parameterType="ExamRecord">
 		insert into exam_record (Exam_Site_Code, Course_Code, Course_SubCode, Examinee_Num,
-         Examinee_Name, Score, Video, File, Creat_Time)
+         Examinee_Name, Exam_Site_Seat, Video_Score, File_Score, Status, Video, File, Creat_Time)
 		values (#{examSiteCode,jdbcType=VARCHAR}, #{courseCode,jdbcType=VARCHAR},
 		#{courseSubCode,jdbcType=INTEGER},
-		#{examineeNum,jdbcType=VARCHAR}, #{examineeName,jdbcType=VARCHAR}, #{score,jdbcType=VARCHAR},
+		#{examineeNum,jdbcType=VARCHAR}, #{examineeName,jdbcType=VARCHAR},
+		#{examSiteSeat,jdbcType=VARCHAR}, #{videoScore,jdbcType=VARCHAR}, 
+		#{fileScore,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR},
 		#{video,jdbcType=VARCHAR}, #{file,jdbcType=VARCHAR},now())
 	</insert>
 	
@@ -52,4 +58,12 @@
         		where Examinee_Num = #{examineeNum,jdbcType=VARCHAR}
     ]]>
     </select>
+    
+    <update id="deleteByExamineeNumAndCourseCode" parameterType="ExamRecord">
+    <![CDATA[
+        update exam_record  set status=#{status,jdbcType=VARCHAR} 
+        		where Examinee_Num = #{examineeNum,jdbcType=VARCHAR}
+        		and Course_Code = #{courseCode,jdbcType=VARCHAR}
+    ]]>
+    </update>
 </mapper>

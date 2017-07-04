@@ -58,6 +58,16 @@ public class ExamSiteDO {
 	 */
 	private String examSiteCode;
 
+	private String examSiteSeat;
+	
+	public String getExamSiteSeat() {
+		return examSiteSeat;
+	}
+
+	public void setExamSiteSeat(String examSiteSeat) {
+		this.examSiteSeat = examSiteSeat;
+	}
+
 	/**
 	 * This property corresponds to db column <tt>Invigilator_Name</tt>.
 	 */
@@ -67,10 +77,28 @@ public class ExamSiteDO {
 	 * This property corresponds to db column <tt>Invigilator_Tel</tt>.
 	 */
 	private String invigilatorTel;
+	
+	private String examAddress;
+	
+	private String companyName;
 
-    //========== getters and setters ==========
+    public String getExamAddress() {
+		return examAddress;
+	}
 
-    /**
+	public void setExamAddress(String examAddress) {
+		this.examAddress = examAddress;
+	}
+
+	public String getCompanyName() {
+		return companyName;
+	}
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+
+	/**
      * Getter method for property <tt>province</tt>.
      *
      * @return property value of province

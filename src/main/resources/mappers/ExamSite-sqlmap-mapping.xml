@@ -9,22 +9,25 @@
         <result property="district" column="District" jdbcType="VARCHAR"/>
         <result property="examSiteName" column="Exam_Site_Name" jdbcType="VARCHAR"/>
         <result property="examSiteCode" column="Exam_Site_Code" jdbcType="VARCHAR" />
+        <result property="examSiteSeat" column="Exam_Site_Seat" jdbcType="VARCHAR" />
         <result property="invigilatorName" column="Invigilator_Name" jdbcType="VARCHAR"/>
         <result property="invigilatorTel" column="Invigilator_Tel" jdbcType="VARCHAR"/>
+        <result property="examAddress" column="Exam_Address" jdbcType="VARCHAR" />
+        <result property="companyName" column="Company_Name" jdbcType="VARCHAR" />
     </resultMap>
 
 
     <select id="queryExamSite" resultMap="RM-EXAM-SITE" >
     <![CDATA[
         select id, Province, City, District, Exam_Site_Name, Exam_Site_Code, 
-        Invigilator_Name, Invigilator_Tel from exam_site
+        Exam_Site_Seat, Invigilator_Name, Invigilator_Tel, Exam_Address, Company_Name from exam_site
     ]]>
     </select>
 	
-	<select id="queryByExamineSiteCode" parameterType="String"
+	<select id="queryByExamSiteCode" parameterType="String"
 		resultMap="RM-EXAM-SITE">
 		select id, Province, City, District, Exam_Site_Name, Exam_Site_Code, 
-        Invigilator_Name, Invigilator_Tel from exam_site
+        Exam_Site_Seat, Invigilator_Name, Invigilator_Tel, Exam_Address, Company_Name from exam_site
 		where Exam_Site_Code = #{examineSiteCode,jdbcType=VARCHAR}
 	</select>
 </mapper>

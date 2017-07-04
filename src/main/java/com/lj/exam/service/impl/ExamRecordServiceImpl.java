@@ -90,7 +90,10 @@ public class ExamRecordServiceImpl implements ExamRecordService{
 		examRecordDO.setCourseSubCode(examRecord.getCourseSubCode());
 		examRecordDO.setExamineeNum(examRecord.getExamineeNum());
 		examRecordDO.setExamineeName(examRecord.getExamineeName());
-		examRecordDO.setScore(examRecord.getScore());
+		examRecordDO.setExamSiteSeat(examRecord.getExamSiteSeat());
+		examRecordDO.setVideoScore(examRecord.getVideoScore());
+		examRecordDO.setFileScore(examRecord.getFileScore());
+		examRecordDO.setStatus("1");
 		examRecordDO.setVideo(examRecord.getVideo());
 		examRecordDO.setFile(examRecord.getFile());
 		int resp = examRecordMapper.insert(examRecordDO);
@@ -102,7 +105,25 @@ public class ExamRecordServiceImpl implements ExamRecordService{
 			res.setCode("9999");
 			res.setMsg("插入失败");
 		}
-		return null;
+		return res;
+	}
+	
+	public ExamRecordResp<ExamRecord> deleteByExamineeNumAndCourseCode(ExamRecord examRecord){
+		ExamRecordResp<ExamRecord> res = new ExamRecordResp<ExamRecord>();
+		ExamRecordDO examRecordDO = new ExamRecordDO();
+		examRecordDO.setCourseCode(examRecord.getCourseCode());
+		examRecordDO.setExamineeNum(examRecord.getExamineeNum());
+		examRecordDO.setStatus("0");
+		int resp = examRecordMapper.deleteByExamineeNumAndCourseCode(examRecordDO);
+		if(resp == 1){
+			res.setBody(examRecord);
+			res.setCode("0000");
+			res.setMsg("删除成功");
+		} else{
+			res.setCode("9999");
+			res.setMsg("删除失败");
+		}
+		return res;
 	}
 	
 	private ExamRecord  po2Vo(ExamRecordDO examRecordDO){
@@ -116,7 +137,9 @@ public class ExamRecordServiceImpl implements ExamRecordService{
 		examRecord.setCourseSubCode(examRecordDO.getCourseSubCode());
 		examRecord.setExamineeNum(examRecordDO.getExamineeNum());
 		examRecord.setExamineeName(examRecordDO.getExamineeName());
-		examRecord.setScore(examRecordDO.getScore());
+		examRecord.setVideoScore(examRecordDO.getVideoScore());
+		examRecord.setFileScore(examRecordDO.getFileScore());
+		examRecord.setStatus(examRecordDO.getStatus());
 		examRecord.setVideo(examRecordDO.getVideo());
 		examRecord.setFile(examRecordDO.getFile());
 		return examRecord;

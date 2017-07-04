@@ -35,7 +35,7 @@ public class ExamSiteTest {
 	
 	@Test
 	public void testQuery(){
-		String examSiteCode = "313";
+		String examSiteCode = "31231";
 		ExamSiteDO examSiteList = examSiteMapper.queryByExamSiteCode(examSiteCode);
 		System.out.println("examSiteList="+examSiteList);
 	}

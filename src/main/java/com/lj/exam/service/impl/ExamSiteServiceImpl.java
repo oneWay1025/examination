@@ -54,8 +54,11 @@ public class ExamSiteServiceImpl implements ExamSiteService{
 		examSite.setDistrict(examSiteDO.getDistrict());
 		examSite.setExamSiteName(examSiteDO.getExamSiteName());
 		examSite.setExamSiteCode(examSiteDO.getExamSiteCode());
+		examSite.setExamSiteSeat(examSiteDO.getExamSiteSeat());
 		examSite.setInvigilatorName(examSiteDO.getInvigilatorName());
 		examSite.setInvigilatorTel(examSiteDO.getInvigilatorTel());
+		examSite.setExamAddress(examSiteDO.getExamAddress());
+		examSite.setCompanyName(examSiteDO.getCompanyName());
 		return examSite;
 	}
 

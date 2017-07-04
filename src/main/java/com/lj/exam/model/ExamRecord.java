@@ -18,8 +18,30 @@ public class ExamRecord {
 
 	private String examineeName;
 
-	private Long score;
+	private String examSiteSeat;
+	
+	public String getExamSiteSeat() {
+		return examSiteSeat;
+	}
 
+	public void setExamSiteSeat(String examSiteSeat) {
+		this.examSiteSeat = examSiteSeat;
+	}
+	
+	private Long videoScore;
+	
+	private Long fileScore;
+
+	private String status;
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
 	private String video;
 
 	private String file;
@@ -80,12 +102,20 @@ public class ExamRecord {
 		this.examineeName = examineeName;
 	}
 
-	public Long getScore() {
-		return score;
+	public Long getVideoScore() {
+		return videoScore;
 	}
 
-	public void setScore(Long score) {
-		this.score = score;
+	public void setVideoScore(Long videoScore) {
+		this.videoScore = videoScore;
+	}
+
+	public Long getFileScore() {
+		return fileScore;
+	}
+
+	public void setFileScore(Long fileScore) {
+		this.fileScore = fileScore;
 	}
 
 	public String getVideo() {

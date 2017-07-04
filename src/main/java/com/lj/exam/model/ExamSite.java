@@ -14,10 +14,39 @@ public class ExamSite {
 
 		private String examSiteCode;
 
+		private String examSiteSeat;
+		
+		public String getExamSiteSeat() {
+			return examSiteSeat;
+		}
+
+		public void setExamSiteSeat(String examSiteSeat) {
+			this.examSiteSeat = examSiteSeat;
+		}
+
 		private String invigilatorName;
 
 		private String invigilatorTel;
+		
+		private String examAddress;
+		
+		private String companyName;
 
+	    public String getExamAddress() {
+			return examAddress;
+		}
+
+		public void setExamAddress(String examAddress) {
+			this.examAddress = examAddress;
+		}
+
+		public String getCompanyName() {
+			return companyName;
+		}
+
+		public void setCompanyName(String companyName) {
+			this.companyName = companyName;
+		}
 		public int getId() {
 			return id;
 		}

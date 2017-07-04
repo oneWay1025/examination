@@ -44,16 +44,29 @@ public class ExamRecordTest {
 	}
 	
 	@Test
+	public void testDelete(){
+		ExamRecordDO examRecord= new ExamRecordDO();
+		examRecord.setCourseCode("qeq1da");
+		examRecord.setExamineeNum("1231da324");
+		examRecord.setStatus("0");
+		int res = examRecordMapper.deleteByExamineeNumAndCourseCode(examRecord);
+		System.out.println("ExamRecordDO="+ res);
+	}
+	
+	@Test
 	public void testInsert(){
 		ExamRecordDO examRecordDO  = new ExamRecordDO();
-		examRecordDO.setExamSiteCode("2321");
-		examRecordDO.setExamineeNum("123132");
-		examRecordDO.setExamineeName("131aqd1q");
-		examRecordDO.setFile("qweqeq1");
-		examRecordDO.setVideo("dqeqw1we");
-		examRecordDO.setScore(11L);
-		examRecordDO.setCourseCode("qeq1eqdada");
-		examRecordDO.setCourseSubCode("12311dewq");
+		examRecordDO.setExamSiteCode("2da321");
+		examRecordDO.setExamineeNum("1231da32");
+		examRecordDO.setExamineeName("131dad1q");
+		examRecordDO.setFile("d");
+		examRecordDO.setVideo("dqeqwds1we");
+		examRecordDO.setVideoScore(11L);
+		examRecordDO.setFileScore(12L);
+		examRecordDO.setStatus("1");
+		examRecordDO.setCourseCode("qeq1da");
+		examRecordDO.setCourseSubCode("12dewq");
+		examRecordDO.setExamSiteSeat("dqqweq2e121");
 		int res = examRecordMapper.insert(examRecordDO);
 		System.out.println("ExamRecordDO="+res);
 	}
@@ -62,7 +75,7 @@ public class ExamRecordTest {
 	public void testQueryAllExamRecord(){
 		System.out.println("testService....");
 		ExamRecordReq examRecordReq = new ExamRecordReq();
-		examRecordReq.setPageSize(1);
+		examRecordReq.setPageSize(3);
 		ExamRecordResp<List<ExamRecord>> res = examRecordService.queryAllExamRecord(examRecordReq);
 		System.out.println("编号:" + res.getTotalNum() + "," + res.getTotalPage());
 	}

@@ -92,11 +92,26 @@ public class ExamRecordInfoRest {
     	examRecord.setCourseSubCode(param.getCourseSubCode());
     	examRecord.setExamineeNum(param.getExamineeNum());
     	examRecord.setExamineeName(param.getExamineeName());
-    	examRecord.setScore(param.getScore());
+    	examRecord.setVideoScore(param.getVideoScore());
+    	examRecord.setFileScore(param.getFileScore());
     	examRecord.setVideo(param.getVideo());
     	examRecord.setFile(param.getFile());
 		
     	ExamRecordResp<ExamRecord> res = examRecordService.insertExamRecord(examRecord);
+    	
+    	return "ok";  
+    }
+    
+    @RequestMapping(value = "/deleteExamRecord", method = {RequestMethod.POST}) 
+    @ResponseBody
+    public String deleteExamRecord(@RequestBody ExamRecord param){
+    	logger.info("插入考试成绩  请求：{}" + JSONObject.toJSONString(param));
+    	
+    	ExamRecord examRecord = new ExamRecord();
+    	examRecord.setCourseCode(param.getCourseCode());
+    	examRecord.setExamineeNum(param.getExamineeNum());
+		
+    	ExamRecordResp<ExamRecord> res = examRecordService.deleteByExamineeNumAndCourseCode(examRecord);
     	
     	return "ok";  
     }

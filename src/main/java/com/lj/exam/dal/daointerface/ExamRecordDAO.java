@@ -19,4 +19,6 @@ public interface ExamRecordDAO {
   	public int queryExamRecordTotal();
   	
   	public int queryTotalByExamineeNum(String examineeNum);
+  	
+  	public int deleteByExamineeNumAndCourseCode(ExamRecordDO examRecord) throws DataAccessException;
 }
