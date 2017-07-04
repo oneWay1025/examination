@@ -15,6 +15,8 @@ public class Course implements Serializable {
 
 	private String courseSubCode;
 
+	private String courseSubCodeName;
+	
 	private String examDate;
 
 	private Date startTime;
@@ -83,6 +85,14 @@ public class Course implements Serializable {
 
 	public void setEndTime(Date endTime) {
 		this.endTime = endTime;
+	}
+
+	public String getCourseSubCodeName() {
+		return courseSubCodeName;
+	}
+
+	public void setCourseSubCodeName(String courseSubCodeName) {
+		this.courseSubCodeName = courseSubCodeName;
 	}
 	
 }

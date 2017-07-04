@@ -8,7 +8,7 @@ public class ExamRecord {
 	
 	private Date creatTime;
 
-	private String examineRoomCode;
+	private String examSiteCode;
 
 	private String courseCode;
 
@@ -40,12 +40,12 @@ public class ExamRecord {
 		this.creatTime = creatTime;
 	}
 
-	public String getExamineRoomCode() {
-		return examineRoomCode;
+	public String getExamSiteCode() {
+		return examSiteCode;
 	}
 
-	public void setExamineRoomCode(String examineRoomCode) {
-		this.examineRoomCode = examineRoomCode;
+	public void setExamSiteCode(String examSiteCode) {
+		this.examSiteCode = examSiteCode;
 	}
 
 	public String getCourseCode() {

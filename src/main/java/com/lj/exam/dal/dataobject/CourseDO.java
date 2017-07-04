@@ -47,6 +47,7 @@ public class CourseDO {
 	 */
 	private String courseSubCode;
 
+	private String courseSubCodeName;
 	/**
 	 * This property corresponds to db column <tt>Exam_Date</tt>.
 	 */
@@ -124,6 +125,14 @@ public class CourseDO {
 
 	public void setEndTime(Date endTime) {
 		this.endTime = endTime;
+	}
+
+	public String getCourseSubCodeName() {
+		return courseSubCodeName;
+	}
+
+	public void setCourseSubCodeName(String courseSubCodeName) {
+		this.courseSubCodeName = courseSubCodeName;
 	}
 
 }

@@ -2,7 +2,7 @@ package com.lj.exam.model;
 
 import java.io.Serializable;
 
-public class ExamRoomResp<T> implements Serializable{
+public class ExamSiteResp<T> implements Serializable{
 
 	/**
 	 * 
@@ -18,22 +18,22 @@ public class ExamRoomResp<T> implements Serializable{
 	private T body;
 
 
-	public ExamRoomResp() {
+	public ExamSiteResp() {
        
     }
 	
-	public ExamRoomResp(String code, String msg){
+	public ExamSiteResp(String code, String msg){
 		this.code = code;
 		this.msg = msg;
 	}
 	
-	public ExamRoomResp(String code, String msg, T body){
+	public ExamSiteResp(String code, String msg, T body){
 		this.code = code;
 		this.msg = msg;
 		this.body = body;
 	}
 	
-	public ExamRoomResp( T body) {
+	public ExamSiteResp( T body) {
 		this.body = body;
 	}
 

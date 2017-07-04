@@ -27,7 +27,7 @@
 	<bean id="examRecordService" class=" com.lj.exam.service.impl.ExamRecordServiceImpl"></bean>
 	
 	<!-- 考场管理 -->
-	<bean id="examRoomService" class=" com.lj.exam.service.impl.ExamRoomServiceImpl"></bean>
+	<bean id="examRoomService" class=" com.lj.exam.service.impl.ExamSiteServiceImpl"></bean>
 	
 	<!-- 考生管理 -->
 	<bean id="studentService" class=" com.lj.exam.service.impl.StudentServiceImpl"></bean>

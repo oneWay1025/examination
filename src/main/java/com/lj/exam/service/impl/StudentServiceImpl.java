@@ -67,7 +67,6 @@ public class StudentServiceImpl implements StudentService{
 		student.setExamineeNum(studentDO.getExamineeNum());
 		student.setCreatTime(studentDO.getCreatTime());
 		student.setContact(studentDO.getContact());
-		student.setWhiteList(studentDO.getWhiteList());
 		return student;
 	}
 }

@@ -46,7 +46,7 @@ public class ExamRecordTest {
 	@Test
 	public void testInsert(){
 		ExamRecordDO examRecordDO  = new ExamRecordDO();
-		examRecordDO.setExamineRoomCode("2321");
+		examRecordDO.setExamSiteCode("2321");
 		examRecordDO.setExamineeNum("123132");
 		examRecordDO.setExamineeName("131aqd1q");
 		examRecordDO.setFile("qweqeq1");

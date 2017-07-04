@@ -16,8 +16,6 @@ public class Student {
 
 	private String contact;
 
-	private String whiteList;
-
 	public int getId() {
 		return id;
 	}
@@ -64,14 +62,6 @@ public class Student {
 
 	public void setContact(String contact) {
 		this.contact = contact;
-	}
-
-	public String getWhiteList() {
-		return whiteList;
-	}
-
-	public void setWhiteList(String whiteList) {
-		this.whiteList = whiteList;
 	}
 
 }

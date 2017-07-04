@@ -16,7 +16,7 @@ package com.lj.exam.dal.dataobject;
  * to generate this file.
  *
  */
-public class ExamRoomDO {
+public class ExamSiteDO {
     
     //========== properties ==========
 
@@ -49,14 +49,14 @@ public class ExamRoomDO {
 	private String district;
 
 	/**
-	 * This property corresponds to db column <tt>ExamineRoom_Name</tt>.
+	 * This property corresponds to db column <tt>ExamineSite_Name</tt>.
 	 */
-	private String examineRoomName;
+	private String examSiteName;
 
 	/**
-	 * This property corresponds to db column <tt>ExamineRoom_Code</tt>.
+	 * This property corresponds to db column <tt>ExamineSite_Code</tt>.
 	 */
-	private String examineRoomCode;
+	private String examSiteCode;
 
 	/**
 	 * This property corresponds to db column <tt>Invigilator_Name</tt>.
@@ -125,39 +125,39 @@ public class ExamRoomDO {
 	}
 
     /**
-     * Getter method for property <tt>examineRoomName</tt>.
+     * Getter method for property <tt>examineSiteName</tt>.
      *
-     * @return property value of examineRoomName
+     * @return property value of examineSiteName
      */
-	public String getExamineRoomName() {
-		return examineRoomName;
+	public String getExamSiteName() {
+		return examSiteName;
 	}
 	
 	/**
-	 * Setter method for property <tt>examineRoomName</tt>.
+	 * Setter method for property <tt>examineSiteName</tt>.
 	 * 
-	 * @param examineRoomName value to be assigned to property examineRoomName
+	 * @param examineSiteName value to be assigned to property examineSiteName
      */
-	public void setExamineRoomName(String examineRoomName) {
-		this.examineRoomName = examineRoomName;
+	public void setExamSiteName(String examSiteName) {
+		this.examSiteName = examSiteName;
 	}
 
     /**
-     * Getter method for property <tt>examineRoomCode</tt>.
+     * Getter method for property <tt>examineSiteCode</tt>.
      *
-     * @return property value of examineRoomCode
+     * @return property value of examineSiteCode
      */
-	public String getExamineRoomCode() {
-		return examineRoomCode;
+	public String getExamSiteCode() {
+		return examSiteCode;
 	}
 	
 	/**
-	 * Setter method for property <tt>examineRoomCode</tt>.
+	 * Setter method for property <tt>examineSiteCode</tt>.
 	 * 
-	 * @param examineRoomCode value to be assigned to property examineRoomCode
+	 * @param examineSiteCode value to be assigned to property examineSiteCode
      */
-	public void setExamineRoomCode(String examineRoomCode) {
-		this.examineRoomCode = examineRoomCode;
+	public void setExamSiteCode(String examSiteCode) {
+		this.examSiteCode = examSiteCode;
 	}
 
     /**

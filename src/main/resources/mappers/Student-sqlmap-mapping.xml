@@ -9,13 +9,12 @@
         <result property="examineeNum" column="Examinee_Num"  jdbcType="VARCHAR" />
         <result property="creatTime" column="Creat_Time" jdbcType="TIMESTAMP"/>
         <result property="contact" column="Contact" jdbcType="VARCHAR" />
-        <result property="whiteList" column="White_List" jdbcType="VARCHAR"/>
     </resultMap>
 
     <select id="queryStudent" parameterType="java.util.Map" resultMap="RM-STUDENT" >
     <![CDATA[
         select id, Examinee_Name, cardID, Examinee_Num, Creat_Time, 
-        Contact, White_List from student
+        Contact from student
         order by Creat_Time desc limit #{startNum},#{endNum}
     ]]>
     </select>
@@ -23,7 +22,7 @@
 	<select id="queryByExamineeNum" parameterType="String"
 		resultMap="RM-STUDENT">
 		select id, Examinee_Name, cardID, Examinee_Num, Creat_Time, 
-        Contact, White_List from student
+        Contact from student
 		where Examinee_Num = #{examineeNum,jdbcType=VARCHAR}
 	</select>
 	

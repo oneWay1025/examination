@@ -8,6 +8,7 @@
         <result property="courseCode" column="Course_Code"  jdbcType="VARCHAR" />
         <result property="courseClass" column="Course_Class" jdbcType="VARCHAR"/>
         <result property="courseSubCode" column="Course_SubCode"  jdbcType="VARCHAR" />
+        <result property="courseSubCodeName" column="Course_SubCode_Name"  jdbcType="VARCHAR" />
         <result property="examDate" column="Exam_Date" jdbcType="VARCHAR"/>
         <result property="startTime" column="Start_time" jdbcType="TIMESTAMP"/>
         <result property="endTime" column="End_time"  jdbcType="TIMESTAMP"/>
@@ -21,14 +22,14 @@
     <select id="queryCourse" resultMap="RM-COURSE" >
     <![CDATA[
         select id, Course_Title, Course_Code, Course_Class, 
-        Course_SubCode, Exam_Date, Start_time, End_time from course
+        Course_SubCode, Course_SubCode_Name, Exam_Date, Start_time, End_time from course
     ]]>
     </select>
 	
 	<select id="queryByCourseCode" parameterType="String"
 		resultMap="RM-COURSE">
 		select id, Course_Title, Course_Code, Course_Class, 
-        Course_SubCode, Exam_Date, Start_time, End_time from course
+        Course_SubCode, Course_SubCode_Name, Exam_Date, Start_time, End_time from course
 		where Course_Code = #{courseCode,jdbcType=VARCHAR}
 	</select>
 	

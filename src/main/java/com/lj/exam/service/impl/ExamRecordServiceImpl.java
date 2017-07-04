@@ -85,7 +85,7 @@ public class ExamRecordServiceImpl implements ExamRecordService{
 		
 		ExamRecordResp<ExamRecord> res = new ExamRecordResp<ExamRecord>();
 		ExamRecordDO examRecordDO = new ExamRecordDO();
-		examRecordDO.setExamineRoomCode(examRecord.getExamineRoomCode());
+		examRecordDO.setExamSiteCode(examRecord.getExamSiteCode());
 		examRecordDO.setCourseCode(examRecord.getCourseCode());
 		examRecordDO.setCourseSubCode(examRecord.getCourseSubCode());
 		examRecordDO.setExamineeNum(examRecord.getExamineeNum());
@@ -111,7 +111,7 @@ public class ExamRecordServiceImpl implements ExamRecordService{
 		ExamRecord examRecord = new ExamRecord();
 		examRecord.setId(examRecordDO.getId());
 		examRecord.setCreatTime(examRecordDO.getCreatTime());
-		examRecord.setExamineRoomCode(examRecordDO.getExamineRoomCode());
+		examRecord.setExamSiteCode(examRecordDO.getExamSiteCode());
 		examRecord.setCourseCode(examRecordDO.getCourseCode());
 		examRecord.setCourseSubCode(examRecordDO.getCourseSubCode());
 		examRecord.setExamineeNum(examRecordDO.getExamineeNum());

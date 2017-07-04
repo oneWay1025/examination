@@ -10,6 +10,6 @@
 		<typeAlias alias="Course" type="com.lj.exam.dal.dataobject.CourseDO" />
 		<typeAlias alias="Student" type="com.lj.exam.dal.dataobject.StudentDO" />
 		<typeAlias alias="ExamRecord" type="com.lj.exam.dal.dataobject.ExamRecordDO" />
-		<typeAlias alias="ExamRoom" type="com.lj.exam.dal.dataobject.ExamRoomDO" />
+		<typeAlias alias="ExamSite" type="com.lj.exam.dal.dataobject.ExamSiteDO" />
 	</typeAliases>
 </configuration>

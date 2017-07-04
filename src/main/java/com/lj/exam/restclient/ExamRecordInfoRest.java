@@ -87,7 +87,7 @@ public class ExamRecordInfoRest {
     	logger.info("插入考试成绩  请求：{}" + JSONObject.toJSONString(param));
     	
     	ExamRecord examRecord = new ExamRecord();
-    	examRecord.setExamineRoomCode(param.getExamineRoomCode());
+    	examRecord.setExamSiteCode(param.getExamSiteCode());
     	examRecord.setCourseCode(param.getCourseCode());
     	examRecord.setCourseSubCode(param.getCourseSubCode());
     	examRecord.setExamineeNum(param.getExamineeNum());

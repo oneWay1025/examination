@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lj.exam.dal.daointerface.ExamSiteDAO">
+    <resultMap id="RM-EXAM-SITE" type="ExamSite">
+    	<result property="id" column="id"  jdbcType="INTEGER"/>
+        <result property="province" column="Province" jdbcType="VARCHAR"/>
+        <result property="city" column="City" jdbcType="VARCHAR"/>
+        <result property="district" column="District" jdbcType="VARCHAR"/>
+        <result property="examSiteName" column="Exam_Site_Name" jdbcType="VARCHAR"/>
+        <result property="examSiteCode" column="Exam_Site_Code" jdbcType="VARCHAR" />
+        <result property="invigilatorName" column="Invigilator_Name" jdbcType="VARCHAR"/>
+        <result property="invigilatorTel" column="Invigilator_Tel" jdbcType="VARCHAR"/>
+    </resultMap>
+
+
+    <select id="queryExamSite" resultMap="RM-EXAM-SITE" >
+    <![CDATA[
+        select id, Province, City, District, Exam_Site_Name, Exam_Site_Code, 
+        Invigilator_Name, Invigilator_Tel from exam_site
+    ]]>
+    </select>
+	
+	<select id="queryByExamineSiteCode" parameterType="String"
+		resultMap="RM-EXAM-SITE">
+		select id, Province, City, District, Exam_Site_Name, Exam_Site_Code, 
+        Invigilator_Name, Invigilator_Tel from exam_site
+		where Exam_Site_Code = #{examineSiteCode,jdbcType=VARCHAR}
+	</select>
+</mapper>

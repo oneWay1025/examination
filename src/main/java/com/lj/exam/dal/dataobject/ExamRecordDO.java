@@ -34,7 +34,7 @@ public class ExamRecordDO {
 	/**
 	 * This property corresponds to db column <tt>ExamineRoom_Code</tt>.
 	 */
-	private String examineRoomCode;
+	private String examSiteCode;
 
 	/**
 	 * This property corresponds to db column <tt>Course_Code</tt>.
@@ -87,12 +87,12 @@ public class ExamRecordDO {
 		this.creatTime = creatTime;
 	}
 
-	public String getExamineRoomCode() {
-		return examineRoomCode;
+	public String getExamSiteCode() {
+		return examSiteCode;
 	}
 
-	public void setExamineRoomCode(String examineRoomCode) {
-		this.examineRoomCode = examineRoomCode;
+	public void setExamSiteCode(String examSiteCode) {
+		this.examSiteCode = examSiteCode;
 	}
 
 	public String getCourseCode() {

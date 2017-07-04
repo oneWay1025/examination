@@ -51,11 +51,6 @@ public class StudentDO {
 	 */
 	private String contact;
 
-	/**
-	 * This property corresponds to db column <tt>White_List</tt>.
-	 */
-	private String whiteList;
-
 	public int getId() {
 		return id;
 	}
@@ -102,14 +97,6 @@ public class StudentDO {
 
 	public void setContact(String contact) {
 		this.contact = contact;
-	}
-
-	public String getWhiteList() {
-		return whiteList;
-	}
-
-	public void setWhiteList(String whiteList) {
-		this.whiteList = whiteList;
 	}
 	
 }

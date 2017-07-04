@@ -8,42 +8,42 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.lj.exam.dal.daointerface.ExamRoomDAO;
-import com.lj.exam.dal.dataobject.ExamRoomDO;
-import com.lj.exam.model.ExamRoom;
-import com.lj.exam.model.ExamRoomResp;
-import com.lj.exam.service.ExamRoomService;
+import com.lj.exam.dal.daointerface.ExamSiteDAO;
+import com.lj.exam.dal.dataobject.ExamSiteDO;
+import com.lj.exam.model.ExamSite;
+import com.lj.exam.model.ExamSiteResp;
+import com.lj.exam.service.ExamSiteService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="classpath:spring/*.xml")
-public class ExamRoomTest {
+public class ExamSiteTest {
 	
 	@Autowired
-	private ExamRoomDAO examRoomMapper;
+	private ExamSiteDAO examSiteMapper;
 	
 	@Autowired
-	private ExamRoomService examRoomService;
+	private ExamSiteService examSiteService;
 	
 	@Test
 	public void test(){
 		System.out.println("test....");
-//		ExamRoomDO examRoom = new ExamRoomDO();
-//		examRoom.setExamineRoomName("张三");
-		List<ExamRoomDO> res = examRoomMapper.queryExamRoom();
+//		ExamSiteDO examSite = new ExamSiteDO();
+//		examSite.setExamineSiteName("张三");
+		List<ExamSiteDO> res = examSiteMapper.queryExamSite();
 		System.out.println("编号:" + res.get(0).getCity());
 	}
 	
 	@Test
 	public void testQuery(){
-		String examineRoomCode = "313";
-		ExamRoomDO examRoomList = examRoomMapper.queryByExamineRoomCode(examineRoomCode);
-		System.out.println("examRoomList="+examRoomList);
+		String examSiteCode = "313";
+		ExamSiteDO examSiteList = examSiteMapper.queryByExamSiteCode(examSiteCode);
+		System.out.println("examSiteList="+examSiteList);
 	}
 	
 	@Test
 	public void testService(){
 		System.out.println("testService....");
-		ExamRoomResp<List<ExamRoom>> res = examRoomService.queryAllExamRoom();
+		ExamSiteResp<List<ExamSite>> res = examSiteService.queryAllExamSite();
 		System.out.println("编号:" + res.getBody().get(0).getDistrict());
 	}
 }

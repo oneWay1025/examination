@@ -4,7 +4,7 @@
 <mapper namespace="com.lj.exam.dal.daointerface.ExamRecordDAO">
     <resultMap id="RM-EXAM-RECORD" type="ExamRecord">
     	<result property="id" column="id"  jdbcType="INTEGER"/>
-        <result property="examineRoomCode" column="ExamineRoom_Code"  jdbcType="VARCHAR" />
+        <result property="examSiteCode" column="Exam_Site_Code"  jdbcType="VARCHAR" />
         <result property="courseCode" column="Course_Code" jdbcType="VARCHAR" />
         <result property="courseSubCode" column="Course_SubCode" jdbcType="VARCHAR" />
         <result property="examineeNum" column="Examinee_Num" jdbcType="VARCHAR" />
@@ -18,24 +18,23 @@
 
     <select id="queryExamRecord" parameterType="java.util.Map" resultMap="RM-EXAM-RECORD" >
     <![CDATA[
-        select id, ExamineRoom_Code, Course_Code, Course_SubCode, Examinee_Num,
-         Examinee_Name, Score, Video, File, Creat_Time from exam_record
+        select id, Exam_Site_Code, Course_Code, Course_SubCode, Examinee_Num, Examinee_Name, Score, Video, File, Creat_Time from exam_record
          order by Creat_Time desc limit #{startNum},#{endNum}
     ]]>
     </select>
 
 	<select id="queryByExamineeNum" parameterType="java.util.Map"
 		resultMap="RM-EXAM-RECORD">
-		select id, ExamineRoom_Code, Course_Code, Course_SubCode, Examinee_Num,
+		select id, Exam_Site_Code, Course_Code, Course_SubCode, Examinee_Num,
          Examinee_Name, Score, Video, File, Creat_Time from exam_record
 		where Examinee_Num = #{examineeNum,jdbcType=VARCHAR}
 			order by Creat_Time desc limit #{startNum},#{endNum}
 	</select>
 	
 	<insert id="insert" parameterType="ExamRecord">
-		insert into exam_record (ExamineRoom_Code, Course_Code, Course_SubCode, Examinee_Num,
+		insert into exam_record (Exam_Site_Code, Course_Code, Course_SubCode, Examinee_Num,
          Examinee_Name, Score, Video, File, Creat_Time)
-		values (#{examineRoomCode,jdbcType=VARCHAR}, #{courseCode,jdbcType=VARCHAR},
+		values (#{examSiteCode,jdbcType=VARCHAR}, #{courseCode,jdbcType=VARCHAR},
 		#{courseSubCode,jdbcType=INTEGER},
 		#{examineeNum,jdbcType=VARCHAR}, #{examineeName,jdbcType=VARCHAR}, #{score,jdbcType=VARCHAR},
 		#{video,jdbcType=VARCHAR}, #{file,jdbcType=VARCHAR},now())

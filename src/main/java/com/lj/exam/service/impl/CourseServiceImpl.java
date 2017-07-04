@@ -73,6 +73,7 @@ public class CourseServiceImpl implements CourseService{
 		course.setCourseCode(courseDO.getCourseCode());
 		course.setCourseClass(courseDO.getCourseClass());
 		course.setCourseSubCode(courseDO.getCourseSubCode());
+		course.setCourseSubCodeName(courseDO.getCourseSubCodeName());
 		course.setExamDate(courseDO.getExamDate());
 		course.setStartTime(courseDO.getStartTime());
 		course.setEndTime(courseDO.getEndTime());

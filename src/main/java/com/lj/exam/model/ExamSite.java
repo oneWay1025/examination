@@ -1,6 +1,6 @@
 package com.lj.exam.model;
 
-public class ExamRoom {
+public class ExamSite {
 	
 		private int id;
 		
@@ -10,9 +10,9 @@ public class ExamRoom {
 
 		private String district;
 
-		private String examineRoomName;
+		private String examSiteName;
 
-		private String examineRoomCode;
+		private String examSiteCode;
 
 		private String invigilatorName;
 
@@ -50,20 +50,20 @@ public class ExamRoom {
 			this.district = district;
 		}
 
-		public String getExamineRoomName() {
-			return examineRoomName;
+		public String getExamSiteName() {
+			return examSiteName;
 		}
 
-		public void setExamineRoomName(String examineRoomName) {
-			this.examineRoomName = examineRoomName;
+		public void setExamSiteName(String examSiteName) {
+			this.examSiteName = examSiteName;
 		}
 
-		public String getExamineRoomCode() {
-			return examineRoomCode;
+		public String getExamSiteCode() {
+			return examSiteCode;
 		}
 
-		public void setExamineRoomCode(String examineRoomCode) {
-			this.examineRoomCode = examineRoomCode;
+		public void setExamSiteCode(String examSiteCode) {
+			this.examSiteCode = examSiteCode;
 		}
 
 		public String getInvigilatorName() {

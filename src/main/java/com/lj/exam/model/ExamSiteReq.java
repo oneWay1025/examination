@@ -2,7 +2,7 @@ package com.lj.exam.model;
 
 import java.io.Serializable;
 
-public class ExamRoomReq<T> implements Serializable{
+public class ExamSiteReq<T> implements Serializable{
 	
 	private static final long serialVersionUID = 4449086858595933530L;
 
