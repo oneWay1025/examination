@@ -61,8 +61,8 @@ public class ExamRecordTest {
 		examRecordDO.setExamineeName("131dad1q");
 		examRecordDO.setFile("d");
 		examRecordDO.setVideo("dqeqwds1we");
-		examRecordDO.setVideoScore(11L);
-		examRecordDO.setFileScore(12L);
+		examRecordDO.setVideoScore(11.22D);
+		examRecordDO.setFileScore(12.22D);
 		examRecordDO.setStatus("1");
 		examRecordDO.setCourseCode("qeq1da");
 		examRecordDO.setCourseSubCode("12dewq");

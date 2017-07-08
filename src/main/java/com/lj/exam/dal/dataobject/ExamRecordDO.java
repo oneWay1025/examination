@@ -66,9 +66,9 @@ public class ExamRecordDO {
 		this.examSiteSeat = examSiteSeat;
 	}
 
-	private Long videoScore;
+	private Double videoScore;
 	
-	private Long fileScore;
+	private Double fileScore;
 	
 	private String status;
 
@@ -146,19 +146,19 @@ public class ExamRecordDO {
 		this.examineeName = examineeName;
 	}
 
-	public Long getVideoScore() {
+	public double getVideoScore() {
 		return videoScore;
 	}
 
-	public void setVideoScore(Long videoScore) {
+	public void setVideoScore(Double videoScore) {
 		this.videoScore = videoScore;
 	}
 
-	public Long getFileScore() {
+	public Double getFileScore() {
 		return fileScore;
 	}
 
-	public void setFileScore(Long fileScore) {
+	public void setFileScore(Double fileScore) {
 		this.fileScore = fileScore;
 	}
 
