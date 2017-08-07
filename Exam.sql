@@ -50,7 +50,21 @@ Examinee_Name VARCHAR(10) not null comment'姓名',
 Score VARCHAR(10)comment'分数',
 Video VARCHAR(200)not null comment'视频',
 File VARCHAR(200)not null comment'文件', 
-Creat_Time datetime comment'创建时间',
-
+Create_Time datetime comment'创建时间',
+Batch_No varchar(10) DEFAULT NULL COMMENT '批次号',
 PRIMARY KEY(id)
 );
+
+CREATE TABLE `exam_record_batch` (
+  `id` bigint(10) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `Exam_Site_Code` varchar(10) DEFAULT NULL COMMENT '考场编号',
+  `Course_Code` varchar(10) DEFAULT NULL COMMENT '科目编号',
+  `Course_SubCode` varchar(10) DEFAULT NULL COMMENT '子科目编号',
+  `Examinee_Name` varchar(10) DEFAULT NULL COMMENT '姓名',
+  `Video` varchar(200) DEFAULT NULL COMMENT '视频',
+  `Create_Time` datetime DEFAULT NULL COMMENT '创建时间',
+  `Batch_No` varchar(10) DEFAULT NULL COMMENT '批次号',
+  `Exam_Time` varchar(20) DEFAULT NULL COMMENT '考试时间',
+  PRIMARY KEY (`id`)
+) ;
+
