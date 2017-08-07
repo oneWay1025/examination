@@ -15,35 +15,37 @@
         <result property="status" column="Status"  jdbcType="VARCHAR" />
         <result property="video" column="Video"  jdbcType="VARCHAR"/>
         <result property="file" column="File" jdbcType="VARCHAR"/>
-        <result property="creatTime" column="Creat_Time" jdbcType="TIMESTAMP"/>
+        <result property="createTime" column="Create_Time" jdbcType="TIMESTAMP"/>
+        <result property="batchNo"  column="Batch_No"  jdbcType="VARCHAR"/>
     </resultMap>
 
 
     <select id="queryExamRecord" parameterType="java.util.Map" resultMap="RM-EXAM-RECORD" >
     <![CDATA[
         select id, Exam_Site_Code, Course_Code, Course_SubCode, Examinee_Num, Examinee_Name, 
-        Exam_Site_Seat, Video_Score, File_Score, Status, Video, File, Creat_Time from exam_record
-         order by Creat_Time desc limit #{startNum},#{endNum}
+        Exam_Site_Seat, Video_Score, File_Score, Status, Video, File, Create_Time,Batch_No from exam_record
+         order by Create_Time desc limit #{startNum},#{endNum}
     ]]>
     </select>
 
 	<select id="queryByExamineeNum" parameterType="java.util.Map"
 		resultMap="RM-EXAM-RECORD">
 		select id, Exam_Site_Code, Course_Code, Course_SubCode, Examinee_Num, Exam_Site_Seat
-         Examinee_Name, Video_Score, File_Score, Status, Video, File, Creat_Time from exam_record
+         Examinee_Name, Video_Score, File_Score, Status, Video, File, Create_Time,Batch_No from exam_record
 		where Examinee_Num = #{examineeNum,jdbcType=VARCHAR}
-			order by Creat_Time desc limit #{startNum},#{endNum}
+			order by Create_Time desc limit #{startNum},#{endNum}
 	</select>
 	
 	<insert id="insert" parameterType="ExamRecord">
 		insert into exam_record (Exam_Site_Code, Course_Code, Course_SubCode, Examinee_Num,
-         Examinee_Name, Exam_Site_Seat, Video_Score, File_Score, Status, Video, File, Creat_Time)
+         Examinee_Name, Exam_Site_Seat, Video_Score, File_Score, Status, Video, File, Create_Time,Batch_No)
 		values (#{examSiteCode,jdbcType=VARCHAR}, #{courseCode,jdbcType=VARCHAR},
 		#{courseSubCode,jdbcType=INTEGER},
 		#{examineeNum,jdbcType=VARCHAR}, #{examineeName,jdbcType=VARCHAR},
 		#{examSiteSeat,jdbcType=VARCHAR}, #{videoScore,jdbcType=VARCHAR}, 
 		#{fileScore,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR},
-		#{video,jdbcType=VARCHAR}, #{file,jdbcType=VARCHAR},now())
+		#{video,jdbcType=VARCHAR}, #{file,jdbcType=VARCHAR},now(),
+		#{batchNo,jdbcType=VARCHAR})
 	</insert>
 	
 	<select id="queryExamRecordTotal" resultType="int">

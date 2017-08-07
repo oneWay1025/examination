@@ -7,7 +7,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -62,5 +64,22 @@ public class StudentInfoRest {
     	StudentResp<List<Student>> res = studentService.queryAllStudent(studentReq);
         return res;  
     }  
+    @RequestMapping(value="/insertStudentInfo" , method={RequestMethod.POST})
+    @ResponseBody
+    public String insertStudentInfo(@RequestBody Student param){
+    	logger.info("插入学生信息  请求{}"+JSONObject.toJSONString(param));
+    	Student stu = new Student();
+    	stu.setCardID(param.getCardID());
+    	stu.setContact(param.getContact());
+    	stu.setExamineeName(param.getExamineeName());
+    	stu.setExamineeNum(param.getExamineeNum());
+    	StudentResp<Student> res = studentService.insertStudent(stu);
+    	if(res.getMsg().equals("添加成功")){
+    	    return "ok";
+    	}else{
+    		return "no";
+    	}
+    	
+    }
   
 }

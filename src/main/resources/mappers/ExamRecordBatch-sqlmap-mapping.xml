@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lj.exam.dal.daointerface.ExamRecordBatchDAO">
+    <resultMap id="RM-EXAM-RECORD-BATCH" type="ExamRecordBatch">
+    	<result property="id" column="id"  jdbcType="INTEGER"/>
+        <result property="examSiteCode" column="Exam_Site_Code"  jdbcType="VARCHAR" />
+        <result property="courseCode" column="Course_Code" jdbcType="VARCHAR" />
+        <result property="courseSubCode" column="Course_SubCode" jdbcType="VARCHAR" />
+        <result property="examineeName" column="Examinee_Name" jdbcType="VARCHAR"/>
+        <result property="video" column="Video"  jdbcType="VARCHAR"/>
+        <result property="createTime" column="Create_Time" jdbcType="TIMESTAMP"/>
+        <result property="batchNo"  column="Batch_No"  jdbcType="VARCHAR"/>
+        <result property="examTime"  column="Exam_Time"  jdbcType="VARCHAR"/>
+     </resultMap>
+
+
+    <select id="queryExamRecordBatch" parameterType="java.util.Map" resultMap="RM-EXAM-RECORD-BATCH" >
+    <![CDATA[
+        select id, Exam_Site_Code, Course_Code, Course_SubCode,  Examinee_Name,  Video, Exam_Time, Create_Time,Batch_No from exam_record_batch
+         order by Create_Time desc limit #{startNum},#{endNum}
+    ]]>
+    </select>
+
+	<select id="queryByExamineeName" parameterType="java.util.Map"
+		resultMap="RM-EXAM-RECORD-BATCH">
+		select id, Exam_Site_Code, Course_Code, Course_SubCode, 
+         Examinee_Name,  Video, Exam_Time, Create_Time,Batch_No from exam_record_batch
+		where Examinee_Name = #{examineeName,jdbcType=VARCHAR}
+			order by Create_Time desc limit #{startNum},#{endNum}
+	</select>
+	
+	<select id="queryExamRecordBatchTotal" resultType="int">
+    <![CDATA[
+        select count(id) from exam_record_batch 
+    ]]>
+    </select>
+	
+	<insert id="insert" parameterType="ExamRecordBatch">
+		insert into exam_record_batch (Exam_Site_Code, Course_Code, Course_SubCode,
+         Examinee_Name,  Video, Exam_Time, Create_Time,Batch_No)
+		values (#{examSiteCode,jdbcType=VARCHAR}, #{courseCode,jdbcType=VARCHAR},
+		#{courseSubCode,jdbcType=INTEGER}, #{examineeName,jdbcType=VARCHAR},
+		#{video,jdbcType=VARCHAR}, #{examTime,jdbcType=VARCHAR},now(),
+		#{batchNo,jdbcType=VARCHAR})
+	</insert>
+	
+
+</mapper>

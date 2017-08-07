@@ -11,5 +11,6 @@
 		<typeAlias alias="Student" type="com.lj.exam.dal.dataobject.StudentDO" />
 		<typeAlias alias="ExamRecord" type="com.lj.exam.dal.dataobject.ExamRecordDO" />
 		<typeAlias alias="ExamSite" type="com.lj.exam.dal.dataobject.ExamSiteDO" />
+		<typeAlias alias="ExamRecordBatch" type="com.lj.exam.dal.dataobject.ExamRecordBatchDO"/>
 	</typeAliases>
 </configuration>

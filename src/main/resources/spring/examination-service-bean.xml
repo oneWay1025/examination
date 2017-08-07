@@ -32,6 +32,9 @@
 	<!-- 考生管理 -->
 	<bean id="studentService" class=" com.lj.exam.service.impl.StudentServiceImpl"></bean>
 	
+	<!-- 考试批次管理 -->
+	<bean id="examRecordBatchService" class=" com.lj.exam.service.impl.ExamRecordBatchServiceImpl"></bean>
+	
 	<context:component-scan base-package="com.lj.exam.restclient" />
 	
 	<mvc:annotation-driven>

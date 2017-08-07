@@ -65,8 +65,28 @@ public class StudentServiceImpl implements StudentService{
 		student.setExamineeName(studentDO.getExamineeName());
 		student.setCardID(studentDO.getCardID());
 		student.setExamineeNum(studentDO.getExamineeNum());
-		student.setCreatTime(studentDO.getCreatTime());
+		student.setCreateTime(studentDO.getCreateTime());
 		student.setContact(studentDO.getContact());
 		return student;
+	}
+
+	@Override
+	public StudentResp<Student> insertStudent(Student student) {
+		StudentResp<Student> res = new StudentResp<Student>();
+		StudentDO studentDo = new StudentDO();
+		studentDo.setCardID(student.getCardID());
+		studentDo.setContact(student.getContact());
+		studentDo.setExamineeName(student.getExamineeName());
+		studentDo.setExamineeNum(student.getExamineeNum());
+		int a = studentMapper.insert(studentDo);
+		if(a==1){
+			res.setCode("0000");
+			res.setMsg("添加成功");
+			res.setBody(student);
+		}else{
+			res.setCode("9999");
+			res.setMsg("添加失败");
+		}
+		return res;
 	}
 }

@@ -6,7 +6,7 @@ public class ExamRecord {
 	
 	private int id;
 	
-	private Date creatTime;
+	private Date createTime;
 
 	private String examSiteCode;
 
@@ -20,6 +20,16 @@ public class ExamRecord {
 
 	private String examSiteSeat;
 	
+	private String batchNo;
+	
+	public String getBatchNo() {
+		return batchNo;
+	}
+
+	public void setBatchNo(String batchNo) {
+		this.batchNo = batchNo;
+	}
+
 	public String getExamSiteSeat() {
 		return examSiteSeat;
 	}
@@ -54,12 +64,12 @@ public class ExamRecord {
 		this.id = id;
 	}
 
-	public Date getCreatTime() {
-		return creatTime;
+	public Date getCreateTime() {
+		return createTime;
 	}
 
-	public void setCreatTime(Date creatTime) {
-		this.creatTime = creatTime;
+	public void setCreateTime(Date creatTime) {
+		this.createTime = creatTime;
 	}
 
 	public String getExamSiteCode() {

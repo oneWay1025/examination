@@ -29,7 +29,7 @@ public class ExamRecordDO {
 	/**
 	 * This property corresponds to db column <tt>Creat_Time</tt>.
 	 */
-	private Date creatTime;
+	private Date createTime;
 
 	/**
 	 * This property corresponds to db column <tt>ExamineRoom_Code</tt>.
@@ -71,6 +71,16 @@ public class ExamRecordDO {
 	private Double fileScore;
 	
 	private String status;
+	
+	private String batchNo;
+
+	public String getBatchNo() {
+		return batchNo;
+	}
+
+	public void setBatchNo(String batchNo) {
+		this.batchNo = batchNo;
+	}
 
 	public String getStatus() {
 		return status;
@@ -98,12 +108,12 @@ public class ExamRecordDO {
 		this.id = id;
 	}
 
-	public Date getCreatTime() {
-		return creatTime;
+	public Date getCreateTime() {
+		return createTime;
 	}
 
-	public void setCreatTime(Date creatTime) {
-		this.creatTime = creatTime;
+	public void setCreateTime(Date creatTime) {
+		this.createTime = creatTime;
 	}
 
 	public String getExamSiteCode() {

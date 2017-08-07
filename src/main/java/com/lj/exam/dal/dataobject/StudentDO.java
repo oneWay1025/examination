@@ -44,7 +44,7 @@ public class StudentDO {
 	/**
 	 * This property corresponds to db column <tt>Creat_Time</tt>.
 	 */
-	private Date creatTime;
+	private Date createTime;
 
 	/**
 	 * This property corresponds to db column <tt>Contact</tt>.
@@ -83,12 +83,12 @@ public class StudentDO {
 		this.examineeNum = examineeNum;
 	}
 
-	public Date getCreatTime() {
-		return creatTime;
+	public Date getCreateTime() {
+		return createTime;
 	}
 
-	public void setCreatTime(Date creatTime) {
-		this.creatTime = creatTime;
+	public void setCreateTime(Date creatTime) {
+		this.createTime = creatTime;
 	}
 
 	public String getContact() {

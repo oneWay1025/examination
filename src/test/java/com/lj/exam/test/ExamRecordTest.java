@@ -31,6 +31,8 @@ public class ExamRecordTest {
 	public void test(){
 		System.out.println("test....");
 		Map map =new HashMap();
+		map.put("startNum", 0);
+		map.put("endNum",6);
 		List<ExamRecordDO> res = examRecordMapper.queryExamRecord(map);
 		System.out.println("编号:" + res.get(0).getCourseCode());
 	}

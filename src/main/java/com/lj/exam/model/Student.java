@@ -12,7 +12,7 @@ public class Student {
 
 	private String examineeNum;
 
-	private Date creatTime;
+	private Date createTime;
 
 	private String contact;
 
@@ -48,12 +48,12 @@ public class Student {
 		this.examineeNum = examineeNum;
 	}
 
-	public Date getCreatTime() {
-		return creatTime;
+	public Date getCreateTime() {
+		return createTime;
 	}
 
-	public void setCreatTime(Date creatTime) {
-		this.creatTime = creatTime;
+	public void setCreateTime(Date creatTime) {
+		this.createTime = creatTime;
 	}
 
 	public String getContact() {

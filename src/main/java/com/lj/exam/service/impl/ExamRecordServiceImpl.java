@@ -96,6 +96,7 @@ public class ExamRecordServiceImpl implements ExamRecordService{
 		examRecordDO.setStatus("1");
 		examRecordDO.setVideo(examRecord.getVideo());
 		examRecordDO.setFile(examRecord.getFile());
+		examRecordDO.setBatchNo(examRecord.getBatchNo());
 		int resp = examRecordMapper.insert(examRecordDO);
 		if(resp == 1){
 			res.setBody(examRecord);
@@ -131,7 +132,7 @@ public class ExamRecordServiceImpl implements ExamRecordService{
 			return null;
 		ExamRecord examRecord = new ExamRecord();
 		examRecord.setId(examRecordDO.getId());
-		examRecord.setCreatTime(examRecordDO.getCreatTime());
+		examRecord.setCreateTime(examRecordDO.getCreateTime());
 		examRecord.setExamSiteCode(examRecordDO.getExamSiteCode());
 		examRecord.setCourseCode(examRecordDO.getCourseCode());
 		examRecord.setCourseSubCode(examRecordDO.getCourseSubCode());

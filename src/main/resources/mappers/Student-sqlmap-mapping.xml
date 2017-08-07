@@ -7,21 +7,29 @@
         <result property="examineeName" column="Examinee_Name" jdbcType="VARCHAR"/>
         <result property="cardID" column="cardID" jdbcType="VARCHAR" />
         <result property="examineeNum" column="Examinee_Num"  jdbcType="VARCHAR" />
-        <result property="creatTime" column="Creat_Time" jdbcType="TIMESTAMP"/>
+        <result property="createTime" column="Create_Time" jdbcType="TIMESTAMP"/>
         <result property="contact" column="Contact" jdbcType="VARCHAR" />
     </resultMap>
+    
+<!-- 插入信息 -->
+<insert id="insert" parameterType="Student">
+		insert into student(id,Examinee_Name,cardID,Examinee_Num,Create_Time,Contact) values(#{id,jdbcType=INTEGER},
+		#{examineeName,jdbcType=VARCHAR},#{cardID,jdbcType=VARCHAR},#{examineeNum,jdbcType=VARCHAR},
+		now(),#{contact,jdbcType=VARCHAR})
+		
+	</insert>
 
     <select id="queryStudent" parameterType="java.util.Map" resultMap="RM-STUDENT" >
     <![CDATA[
-        select id, Examinee_Name, cardID, Examinee_Num, Creat_Time, 
+        select id, Examinee_Name, cardID, Examinee_Num, Create_Time, 
         Contact from student
-        order by Creat_Time desc limit #{startNum},#{endNum}
+        order by Create_Time desc limit #{startNum},#{endNum}
     ]]>
     </select>
 
 	<select id="queryByExamineeNum" parameterType="String"
 		resultMap="RM-STUDENT">
-		select id, Examinee_Name, cardID, Examinee_Num, Creat_Time, 
+		select id, Examinee_Name, cardID, Examinee_Num, Create_Time, 
         Contact from student
 		where Examinee_Num = #{examineeNum,jdbcType=VARCHAR}
 	</select>

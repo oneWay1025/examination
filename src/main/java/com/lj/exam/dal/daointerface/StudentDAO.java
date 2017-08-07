@@ -14,5 +14,9 @@ public interface StudentDAO {
     public StudentDO queryByExamineeNum(String examineeNum) throws DataAccessException;
     
     public int queryStudentTotal() throws DataAccessException;
+    
+    
+    //插入学生信息
+    public int insert(StudentDO student) throws DataAccessException;
 
 }

@@ -96,10 +96,15 @@ public class ExamRecordInfoRest {
     	examRecord.setFileScore(param.getFileScore());
     	examRecord.setVideo(param.getVideo());
     	examRecord.setFile(param.getFile());
+    	examRecord.setBatchNo(param.getBatchNo());
 		
     	ExamRecordResp<ExamRecord> res = examRecordService.insertExamRecord(examRecord);
+    	if(res.getMsg().equals("插入成功")){
+    	    return "ok";
+    	}else{
+    		return "no";
+    	}
     	
-    	return "ok";  
     }
     
     @RequestMapping(value = "/deleteExamRecord", method = {RequestMethod.POST}) 

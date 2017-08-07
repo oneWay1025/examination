@@ -35,7 +35,7 @@ public class CourseTest {
 	
 	@Test
 	public void testQueryByCourseCode(){
-		String courseCode = "2211";
+		String courseCode = "aa";
 		CourseDO course = courseMapper.queryByCourseCode(courseCode);
 		System.out.println("code="+course.getCourseClass());
 	}
@@ -50,7 +50,7 @@ public class CourseTest {
 	@Test
 	public void testQueryCourseByCourseCode(){
 		System.out.println("testService....");
-		String courseCode =  "1231231";
+		String courseCode =  "bb";
 		CourseResp<Course> res = courseService.queryCourseByCourseCode(courseCode);
 		System.out.println("编号:" + res.getCode());
 	}
